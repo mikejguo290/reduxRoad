@@ -27,6 +27,7 @@ const reducer = (state=initialWagonState, action) => {
                 days: state.days+1,
             }
         }
+
         case 'travel': {
             // can travel for any number of days, supplies down 20 per day travelled, distance up 10 per day travlled , days up by days travelled
             return  {
@@ -35,6 +36,16 @@ const reducer = (state=initialWagonState, action) => {
                 days : state.days + action.payload.days
             }
         }
+
+        case 'tippedWagon' : {
+            // if wagon is tipped, spend 30 supplies and one day to fix, no distance travelled meantime
+            return {
+                ...state,
+                supplies: state.supplies - 30,
+                days: state.days + 1
+            }
+        }
+
         default: {
             return state; 
         }
@@ -53,3 +64,7 @@ const travel = {
         days: 1,
     }
 }
+
+const tippedWagon = {
+    type: 'tippedWagon',
+} 
