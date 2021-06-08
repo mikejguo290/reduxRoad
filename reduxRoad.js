@@ -19,9 +19,21 @@ const initialWagonState = {
 const reducer = (state=initialWagonState, action) => {
     // reducer with initial state set to initialWagon state if none is provided
     switch(action.type){
-
+        case 'gather': {
+            return {
+                ...state, 
+                supplies: state.supplies+15, // don't use +=
+                days: state.days+1,
+            }
+        } 
         default: {
             return state; 
         }
     }
+}
+
+// events are modelled with actions
+const gatherSupplies = {
+    // gather supplies , supplies +=15, days +=1, distance +=0
+    type: 'gather',
 }
