@@ -13,7 +13,7 @@ const initialWagonState = {
     // distance travelled by wagon
     distance: 0, 
     // days travelled.
-    days: 0, 
+    days: 0
 }
 
 const reducer = (state=initialWagonState, action) => {
@@ -24,16 +24,16 @@ const reducer = (state=initialWagonState, action) => {
             return {
                 ...state, 
                 supplies: state.supplies+15, // don't use +=
-                days: state.days+1,
+                days: state.days+1
             }
         }
 
         case 'travel': {
             // can travel for any number of days, supplies down 20 per day travelled, distance up 10 per day travlled , days up by days travelled
             return  {
-                supplies : state.supplies - action.payload.days * 20,
-                distance : state.disance + action.payload.days * 10,
-                days : state.days + action.payload.days
+                supplies : state.supplies - action.payload * 20,
+                distance : state.disance + action.payload * 10,
+                days : state.days + action.payload
             }
         }
 
@@ -60,9 +60,7 @@ const gatherSupplies = {
 // variable factors defined in actions. rates defined in switch statement. 
 const travel = {
     type:'travel',
-    payload: {
-        days: 1,
-    }
+    payload: 1
 }
 
 const tippedWagon = {
@@ -74,3 +72,7 @@ const tippedWagon = {
 let wagon = reducer(undefined,{})
 console.log(wagon);
 
+// first day is travelling, call reducer with action travel and payload: 1
+
+wagon=reducer(wagon, travel);
+console.log(wagon);
