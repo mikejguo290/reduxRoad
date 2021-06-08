@@ -20,12 +20,21 @@ const reducer = (state=initialWagonState, action) => {
     // reducer with initial state set to initialWagon state if none is provided
     switch(action.type){
         case 'gather': {
+            // gather supplies , supplies +15, days +1, distance +0
             return {
                 ...state, 
                 supplies: state.supplies+15, // don't use +=
                 days: state.days+1,
             }
-        } 
+        }
+        case 'travel': {
+            // can travel for any number of days, supplies down 20 per day travelled, distance up 10 per day travlled , days up by days travelled
+            return  {
+                supplies : state.supplies - action.payload.days * 20,
+                distance : state.disance + action.payload.days * 10,
+                days : state.days + action.payload.days
+            }
+        }
         default: {
             return state; 
         }
@@ -34,6 +43,13 @@ const reducer = (state=initialWagonState, action) => {
 
 // events are modelled with actions
 const gatherSupplies = {
-    // gather supplies , supplies +=15, days +=1, distance +=0
     type: 'gather',
+}
+
+// variable factors defined in actions. rates defined in switch statement. 
+const travel = {
+    type:'travel',
+    payload: {
+        days: 1,
+    }
 }
