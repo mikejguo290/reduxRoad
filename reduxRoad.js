@@ -78,3 +78,7 @@ console.log(wagon);
 //  second day is to gather supplies
 wagon = reducer(wagon, gatherSupplies);
 console.log(wagon);
+
+// third day. wagon is tipped. 
+wagon = reducer(wagon, tippedWagon);
+console.log(wagon);
