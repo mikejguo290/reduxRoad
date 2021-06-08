@@ -15,3 +15,8 @@ const initialWagonState = {
     // days travelled.
     days: 0, 
 }
+
+const reducer = (state=initialWagonState, action) => {
+    // reducer with initial state set to initialWagon state if none is provided
+
+}
