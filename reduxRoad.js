@@ -13,7 +13,10 @@ const initialWagonState = {
     // distance travelled by wagon
     distance: 0, 
     // days travelled.
-    days: 0
+    days: 0,
+    // cash money
+    money: 200
+
 }
 
 const reducer = (state=initialWagonState, action) => {
@@ -32,6 +35,7 @@ const reducer = (state=initialWagonState, action) => {
             // can travel for any number of days, supplies down 20 per day travelled, distance up 10 per day travlled , days up by days travelled
             let days=action.payload;
             if (state.supplies <= 0){
+                // do not update state when move is illegal, but reducer still has to return state. 
                 console.log("You have no supplies!");
                 return state;
             }else if (state.supplies < days*20){
