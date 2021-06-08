@@ -68,11 +68,13 @@ const tippedWagon = {
 } 
 
 // start the game with undefined state and empty action object 
-
 let wagon = reducer(undefined,{})
 console.log(wagon);
 
 // first day is travelling, call reducer with action travel and payload: 1
-
 wagon=reducer(wagon, travel);
+console.log(wagon);
+
+//  second day is to gather supplies
+wagon = reducer(wagon, gatherSupplies);
 console.log(wagon);
