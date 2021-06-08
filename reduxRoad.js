@@ -86,6 +86,14 @@ const reducer = (state=initialWagonState, action) => {
             }
         }
 
+        case 'theft' : {
+            // outlaw steals half of the player's cash. 
+            return {
+                ...state,
+                cash: state.cash/2
+            }
+        }
+
         default: {
             return state; 
         }
