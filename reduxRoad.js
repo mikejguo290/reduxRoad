@@ -58,7 +58,7 @@ const reducer = (state=initialWagonState, action) => {
                 days: state.days + 1
             }
         }
-        case 'sell':{
+        case 'sell': {
             // players can give away 20 supplies to gain 5 cash
             const minSuppliesToSell =  20 
             if (state.supplies > minSuppliesToSell){
@@ -66,6 +66,20 @@ const reducer = (state=initialWagonState, action) => {
                     ...state,
                     supplies: state.supplies - 20,
                     cash: state.cash + 5
+                }
+            }else{
+                return state;
+            }
+        }
+
+        case 'buy': {
+            // gain 25 supplies at cost of 15 cash
+            const minTransactionCash = 15;
+            if(state.cash > minTransactionCash){
+                return {
+                    ...state,
+                    supplies: state.supplies + 25 ,
+                    cash: state.cash - 15
                 }
             }else{
                 return state;
