@@ -5,3 +5,13 @@ Each event in the game is represented as an action.
 Players can gather supplies, travel, and–if they play risky–sometimes tip over the wagon carrying their supplies.
 */
 
+const initialWagonState = {
+    // initial state of the wagon
+
+    // initial supplies.
+    supplies: 100,
+    // distance travelled by wagon
+    distance: 0, 
+    // days travelled.
+    days: 0, 
+}
