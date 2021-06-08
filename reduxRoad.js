@@ -18,5 +18,10 @@ const initialWagonState = {
 
 const reducer = (state=initialWagonState, action) => {
     // reducer with initial state set to initialWagon state if none is provided
+    switch(action.type){
 
+        default: {
+            return state; 
+        }
+    }
 }
