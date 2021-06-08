@@ -58,6 +58,19 @@ const reducer = (state=initialWagonState, action) => {
                 days: state.days + 1
             }
         }
+        case 'sell':{
+            // players can give away 20 supplies to gain 5 cash
+            const minSuppliesToSell =  20 
+            if (state.supplies > minSuppliesToSell){
+                return {
+                    ...state,
+                    supplies: state.supplies - 20,
+                    cash: state.cash + 5
+                }
+            }else{
+                return state;
+            }
+        }
 
         default: {
             return state; 
