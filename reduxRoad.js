@@ -82,3 +82,12 @@ console.log(wagon);
 // third day. wagon is tipped. 
 wagon = reducer(wagon, tippedWagon);
 console.log(wagon);
+
+// on fourth day. set out for three days of travel
+const travelThreeDays={
+    type:'travel',
+    payload: 3
+  };
+
+wagon = reducer(wagon, travelThreeDays);
+console.log(wagon);
