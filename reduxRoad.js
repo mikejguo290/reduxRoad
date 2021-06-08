@@ -30,10 +30,19 @@ const reducer = (state=initialWagonState, action) => {
 
         case 'travel': {
             // can travel for any number of days, supplies down 20 per day travelled, distance up 10 per day travlled , days up by days travelled
-            return  {
-                supplies : state.supplies - action.payload * 20,
-                distance : state.disance + action.payload * 10,
-                days : state.days + action.payload
+            let days=action.payload;
+            if (state.supplies <= 0){
+                console.log("You have no supplies!");
+                return state;
+            }else if (state.supplies < days*20){
+                console.log(`You do not have enough supplies to travel for ${days} days!`);
+                return state;
+            }else{
+                return  {
+                    supplies : state.supplies - days * 20,
+                    distance : state.disance + days * 10,
+                    days : state.days + days
+                    }
             }
         }
 
