@@ -68,3 +68,9 @@ const travel = {
 const tippedWagon = {
     type: 'tippedWagon',
 } 
+
+// start the game with undefined state and empty action object 
+
+let wagon = reducer(undefined,{})
+console.log(wagon);
+
